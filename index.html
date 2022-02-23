@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | MobilePOBoxBuild</title>
+  </head>
+  <body style="text-align: center">
+    <canvas id="unity-canvas" width=280 height=200 style="width: 280px; height: 200px; background: #000000"></canvas>
+    <script src="Build/0dd3bc9583fec81c81f70b592672c367.js"></script>
+    <script>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+      }
+
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/e166747c0a2356398123a744b42e7409.data",
+        frameworkUrl: "Build/b7a64def290037bebb46fc96bdd3052e.js",
+        codeUrl: "Build/e4afa4a4001a0fbbc63c35e5105d4967.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Mason Banghart",
+        productName: "MobilePOBoxBuild",
+        productVersion: "0.1",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
+  </body>
+</html>
